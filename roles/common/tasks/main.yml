@@ -1,0 +1,24 @@
+- name: Update apt cache
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Install common packages
+  apt:
+    name: "{{ common_packages }}"
+    state: present
+
+- name: Create managed user
+  user:
+    name: "{{ managed_user }}"
+    shell: /bin/bash
+    create_home: true
+    state: present
+
+- name: Create application directory
+  file:
+    path: "{{ managed_directory }}"
+    state: directory
+    owner: "{{ managed_user }}"
+    group: "{{ managed_user }}"
+    mode: "0755"

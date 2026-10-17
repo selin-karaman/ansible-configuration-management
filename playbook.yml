@@ -1,0 +1,7 @@
+- name: Configure managed Linux nodes
+  hosts: managed_nodes
+  become: true
+
+  roles:
+    - common
+    - nginx

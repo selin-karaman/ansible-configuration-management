@@ -1,0 +1,8 @@
+common_packages:
+  - curl
+  - vim
+  - unzip
+  - htop
+
+managed_user: devops
+managed_directory: /opt/app
